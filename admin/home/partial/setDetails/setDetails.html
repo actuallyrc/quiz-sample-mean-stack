@@ -1,0 +1,144 @@
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 marBtm15 boxSize conentBorder">
+    <!--    <form name="quizSetInfo" class="addQuizSet" role="form" ng-submit="addQuizSet(quizSetInfo.$valid)" novalidate>-->
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form name="quizSetInfo" class="addQuizSet" role="form" ng-submit="addQuizSet(quizSetInfo.$valid)" novalidate>
+                    <h2>Set Details</h2>
+                    <div class="form-group" ng-class="{'has-error' : (quizSetInfo.title.$invalid && submitted)}">
+                        <label>Title</label>
+                        <input name="title" ng-model="quiz.title" type="text" class="custom-textbox signupText form-control" required/>
+                        <p ng-show="quizSetInfo.title.$invalid && submitted" class="help-block text-danger">Enter title.</p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : (quizSetInfo.description.$invalid && submitted)}">
+                        <label>Description</label>
+                        <input name="description" ng-model="quiz.description" type="text" class="custom-textbox signupText form-control" required/>
+                        <p ng-show="quizSetInfo.description.$invalid && submitted" class="help-block text-danger">Enter description.</p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : (quizSetInfo.totalTime.$invalid && submitted)}">
+                        <label>Total Time</label>
+                        <div class="customDropdown">
+                            <!--
+                            <select name="totalTime" ng-model="quiz.totalTime" class="form-control" required>
+                                <option value="">Select</option>
+                                <option value="Shuttle">Shuttle</option>
+                                <option value="Adhoc">Adhoc</option>
+                            </select>
+-->
+                            <input name="totalTime" ng-model="quiz.totalTime" type="text" class="custom-textbox signupText form-control" required/>
+                        </div>
+                        <p ng-show="quizSetInfo.totalTime.$error.required && submitted" class="help-block"> Enter total time</p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : (quizSetInfo.instruction.$invalid && submitted)}">
+                        <label>Instruction</label>
+                        <input type="text" name="totalTime" ng-model="quiz.instruction" class="custom-textbox signupText form-control" required/>
+                        <p ng-show="quizSetInfo.instruction.$invalid && submitted" class="help-block">Enter instruction</p>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-primary marTop20"><i class="fa fa-download marRht5" aria-hidden="true"></i><span ng-if="quiz._id"> Save</span><span ng-if="!quiz._id"> Create</span></button>
+                    </div>
+                    <!--                end of left cnt-->
+                </form>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form name="addQuestions" class="addQuestions" role="form" ng-submit="addQuestion(addQuestions.$valid)" novalidate>
+                    <h2>Add Questions</h2>
+                    <div class="form-group">
+                        <div class="form-group" ng-class="{'has-error' : (addQuestions.question.$invalid && quesSubmitted)}">
+                            <label>Question</label>
+                            <input type="text" name="question" ng-model="question.question" ng-minlength="6" class="custom-textbox signupText form-control" required/>
+                            <p ng-show="addQuestions.question.$error.required && quesSubmitted" class="help-block">Enter question</p>
+                        </div>
+                        <div class="form-group " ng-class="{'has-error' : (addQuestions.marks.$invalid && quesSubmitted)}">
+                            <label>Enter marks</label>
+                            <input type="number" name="marks" ng-model="question.marks" class="custom-textbox signupText form-control" required/>
+                            <p ng-show="addQuestions.marks.$invalid && quesSubmitted" class="help-block">Enter marks</p>
+                        </div>
+                        <div class="form-group">
+                            <label>Enter options</label>
+                            <div class="col-md-12 custom_pad_left custom-mar-top">
+                                <div class="col-md-1 custom_pad_left">
+                                    <input type="radio" ng-model="question.answeropt" name="blankRadio" id="blankRadio1" ng-value="1" aria-label="Option1" value="question.answeropt">
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" ng-model="question.opts[0]" class="form-control" id="exampleInputEmail1" placeholder="Option1">
+
+                                    <span class="text-danger" ng-show="err1 && quesSubmitted">Option value is required</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 custom_pad_left custom-mar-top">
+                                <div class="col-md-1 custom_pad_left">
+                                    <input type="radio" name="blankRadio" ng-model="question.answeropt" id="blankRadio1" ng-value="2" aria-label="...">
+                                </div>
+                                <div class="col-md-10 ">
+                                    <input type="text" ng-model="question.opts[1]" class="form-control" id="exampleInputEmail1" placeholder="Option2">
+                                    <span class="text-danger" ng-show="err2 && quesSubmitted">Option value is required</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 custom_pad_left custom-mar-top">
+                                <div class="col-md-1 custom_pad_left">
+                                    <input type="radio" ng-model="question.answeropt" name="blankRadio" id="blankRadio1" ng-value="3" aria-label="Option1">
+                                </div>
+                                <div class="col-md-10 ">
+                                    <input type="text" ng-model="question.opts[2]" class="form-control" id="exampleInputEmail1" placeholder="Option3">
+
+                                    <span class="text-danger" ng-show="err3 && quesSubmitted">Option value is required</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 custom_pad_left custom-mar-top">
+                                <div class="col-md-1 custom_pad_left">
+                                    <input type="radio" ng-model="question.answeropt" name="blankRadio" id="blankRadio1" ng-value="4" aria-label="...">
+                                </div>
+                                <div class="col-md-10 ">
+                                    <input type="text" ng-model="question.opts[3]" class="form-control" id="" placeholder="Option4">
+                                    <span class="text-danger" ng-show="err4 && quesSubmitted">Option value is required</span>
+                                </div>
+                            </div>
+                            <span class="text-danger col-md-12 custom-mar-top" ng-show="anserr && quesSubmitted">Please select the answer</span>
+                            <span class="text-success col-md-12 custom-mar-top" ng-show="anssuccess">Question added successfully</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-primary marTop5"><i class="fa fa-download marRht5" aria-hidden="true"></i> <span ng-if="!question._id">Add Question</span><span ng-if="question._id">Save Question</span></button>
+                    </div>
+                    <!--                end of right cnt-->
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--    </form>-->
+</div>
+<div class="col-md-12 marTop5 boxsize">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 resetRow table-responsive">
+        <table class="table table-bordered tableContainer ">
+            <thead>
+                <tr>
+                    <th class="text-center col-md-2">Sl No.</th>
+                    <th class="text-center col-md-6">Question</th>
+                    <th class="text-center col-md-4">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="question in quiz.questions | orderBy:'-created'">
+                    <td class="text-center col-md-2">
+                        {{$index+1}}
+                    </td>
+                    <td class=" text-center col-md-6">
+                        {{question.question}}
+                    </td>
+                    <td class="text-center col-md-4">
+                        <a type="button " class="btn btn-primary " ng-click="edit($index) "><i class="fa fa-eye marRht5 "></i> Edit</a>
+                        <a type="button" class="btn btn-danger " ng-click="removeQuestion($index)"><i class="fa fa-trash-o marRht5"></i> Delete</a>
+                    </td>
+                </tr>
+                <tr ng-if="!quiz.questions.length ">
+                    <td colspan="14 " class="text-center ">No records are found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

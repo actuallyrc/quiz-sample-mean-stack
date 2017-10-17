@@ -1,0 +1,36 @@
+<div class="dashboard-heading">
+    <h2>Summary <span class="pull-right"><a type="button " class="btn btn-primary" ng-click="back()"> Back</a></span>
+    </h2>
+</div>
+
+<div class="col-md-12">
+    <div class="org-home-main-content ng-scope">
+        <div class="row custom-mar">
+            <div class="col-md-12">
+                <div class="col-md-4"><span class="custom_q_list"><b>User Name: {{result.user.displayName}}</b></span> </div>
+                <div class="col-md-4">
+                    <p><b>Quiz Title : {{result.title}}</b></p>
+                </div>
+                <div class="col-md-4">
+                    <p><b>Total Marks : {{result.score}}/{{result.totalMarks}}</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="row custom-mar">
+            <div class="col-md-12">
+                <h5 class="col-md-12 marBtmZero"><b>Result Summary</b></h5>
+                <!--                <div ng-repeat="section in sectionList">-->
+                <div class="col-md-12 summaryQues" ng-repeat="answer in result.response">
+                    <span ta-bind="text" ta-readonly="disabled" ng-model="answer.question" class="marTp10"><b>Q. No. {{$index+1}}: {{answer.question}}</b></span>
+                    <p>Your Answer : {{answer.answer}}</p>
+                    <p class="summaryWrong" ng-if="answer.correct == false"><i class="fa fa-times"></i> Wrong</p>
+                    <p class="summaryRight" ng-if="answer.correct == true"><i class="fa fa-check"></i> Correct</p>
+
+                    <p ng-if="answer.correct == false">Correct Answer : {{answer.correctAnswer}} </p>
+                    <!--                    <p>Correct Answer : {{answer.correctAnswer}} </p>-->
+                </div>
+                <!--                </div>-->
+            </div>
+        </div>
+    </div>
+</div>

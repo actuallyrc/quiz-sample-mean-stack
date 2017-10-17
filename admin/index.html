@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="admin">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IC50 Admin</title>
+    <link href="app.less" type="text/css" rel="stylesheet/less">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--    <link href="css/datepicker3.css" rel="stylesheet">-->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!--Icons-->
+    <script src="js/lumino.glyphs.js"></script>
+
+    <!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+    <!-- Livereload script for development only (stripped during dist build) -->
+    <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
+
+    <!-- JS from Bower Components -->
+    <script src="bower_components/less.js/dist/less-1.6.2.js" data-concat="false">
+
+
+    </script>
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <!--    <script src="bower_components/moment/moment.js"></script>-->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+    <!--    <script src="js/jquery-1.11.1.min.js"></script>-->
+    <!--    <script src="js/bootstrap.min.js"></script>-->
+    <!--    <script src="js/chart.min.js"></script>-->
+    <!--    <script src="js/chart-data.js"></script>-->
+    <!--    <script src="js/easypiechart.js"></script>-->
+    <!--    <script src="js/easypiechart-data.js"></script>-->
+    <!--    <script src="js/bootstrap-datepicker.js"></script>-->
+    <!-- Add New Bower Component JS Above -->
+
+    <!-- Main App JS -->
+    <script src="app.js"></script>
+    <script src="home/home.js"></script>
+    <script src="home/partial/common/common.js"></script>
+    <script src="home/partial/sidebar/sidebar.js"></script>
+    <script src="home/partial/login/login.js"></script>
+    <script src="home/partial/dashboard/dashboard.js"></script>
+    <script src="home/partial/header/header.js"></script>
+    <script src="home/partial/login/login.js"></script>
+    <script src="home/partial/users/users.js"></script>
+    <script src="home/partial/userDetails/userDetails.js"></script>
+    <script src="home/partial/sets/sets.js"></script>
+    <script src="home/partial/setDetails/setDetails.js"></script>
+    <script src="service/session-service.js"></script>
+    <script src="service/sets-service.js"></script>
+    <script src="home/partial/summary/summary.js"></script>
+    <!-- Add New Component JS Above -->
+
+    <div>
+        <div id="content" class="container">
+            <div class="row">
+                <div ui-view>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //        $('#calendar').datepicker({});
+
+        ! function($) {
+            $(document).on("click", "ul.nav li.parent > a > span.icon", function() {
+                $(this).find('em:first').toggleClass("glyphicon-minus");
+            });
+            $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+        }(window.jQuery);
+
+        $(window).on('resize', function() {
+            if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+        })
+        $(window).on('resize', function() {
+            if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+        })
+
+    </script>
+</body>
+
+</html>

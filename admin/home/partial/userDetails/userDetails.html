@@ -1,0 +1,83 @@
+<!--<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">-->
+<!--
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <svg class="glyph stroked home">
+                    <use xlink:href="#stroked-home"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="active">Icons</li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Users</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Users</div>
+            <div class="panel-body">
+                <table data-toggle="table" data-url="tables/data1.json" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                    <thead>
+                        <tr>
+                            <th data-field="state" data-checkbox="true">Item ID</th>
+                            <th data-field="id" data-sortable="true">Item ID</th>
+                            <th data-field="name" data-sortable="true">Item Name</th>
+                            <th data-field="price" data-sortable="true">Item Price</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<div class="dashboard-heading">
+    <h2>User Performance <span class="pull-right"><a type="button " class="btn btn-primary" ui-sref="common.users"> Back</a></span>
+    </h2>
+</div>
+<div class="col-md-12 pad26 boxsize">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 resetRow table-responsive">
+        <table class="table table-bordered tableContainer ">
+            <thead>
+                <tr>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Quiz Title</th>
+                    <th class="text-center">Marks</th>
+                    <th class="text-center">Total Marks</th>
+                    <th class="text-center">
+                        View report
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="report.length" ng-repeat="item in report">
+                    <td class=" text-center ">
+                        {{item.resultSummary.date | date}}
+                    </td>
+                    <td class="text-center ">
+                        {{item.title}}
+                    </td>
+                    <td class="text-center ">
+                        {{item.resultSummary.score}}
+                    </td>
+                    <td class="text-center ">
+                        {{item.resultSummary.totalMarks}}
+                    </td>
+                    <td class="text-center">
+                        <a type="button" class="btn btn-primary" ui-sref="common.summary({userId:userId})" ng-click="assignSummary(item)"><i class="fa fa-eye marRht5"></i> View</a>
+                    </td>
+                </tr>
+                <tr ng-if="!report.length ">
+                    <td colspan="14 " class="text-center ">No records are found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

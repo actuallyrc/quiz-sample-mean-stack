@@ -1,0 +1,17 @@
+<!--
+<div class="col-md-2 col-sm-12 col-xs-12 resetRow menuLeft" ng-class="{'col-md-2':state, 'col-md-1 custom':!state}">
+
+    <div ng-include="'home/partial/header/header.html'"></div>
+</div>
+<div class="col-sm-12 col-xs-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 resetRow" ng-class="{'col-md-10 col-md-offset-2':state,'col-md-11 col-md-offset-1 contentArea':!state}">
+    <div class="" ui-view></div>
+</div>-->
+
+<div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+    <div ng-include="'home/partial/header/header.html'" ng-class="{'hideHeader':$state.includes('login')}"></div>
+    <div ng-include="'home/partial/sidebar/sidebar.html'" ng-class="{'hideHeader':$state.includes('login')}"></div>
+</div>
+
+<div class="col-md-10 col-lg-10 col-sm-12 col-xs-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 resetRow">
+    <div class="" ui-view></div>
+</div>

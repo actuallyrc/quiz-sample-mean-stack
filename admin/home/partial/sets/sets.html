@@ -1,0 +1,88 @@
+<!--<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">-->
+<!--
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <svg class="glyph stroked home">
+                    <use xlink:href="#stroked-home"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="active">Icons</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Quiz Sets</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Quiz Sets</div>
+            <div class="panel-body">
+                <table data-toggle="table" data-url="tables/data1.json" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                    <thead>
+                        <tr>
+                            <th data-field="state" data-checkbox="true">Item ID</th>
+                            <th data-field="id" data-sortable="true">Item ID</th>
+                            <th data-field="name" data-sortable="true">Item Name</th>
+                            <th data-field="price" data-sortable="true">Item Price</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<div class="dashboard-heading">
+    <h2>Quiz Sets <span class="pull-right"><a type="button " class="btn btn-primary" ui-sref="common.set({setId:0}) "><i class="fa fa-edit marRht5 "></i> Create New</a></span></h2>
+</div>
+<div class="col-md-12 pad26 boxsize">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 resetRow table-responsive">
+        <table class="table table-bordered tableContainer ">
+            <thead>
+                <tr>
+                    <th class="text-center">Title</th>
+                    <th class="text-center">Description</th>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-if="sets.length" ng-repeat="set in sets">
+
+                    <td class="text-center">
+                        {{set.title}}
+                    </td>
+                    <td class="text-center">
+                        {{set.description}}
+                    </td>
+                    <td class="text-center">
+                        {{set.created | date}}
+                    </td>
+                    <td class="text-center">
+                        {{set.status}}
+                    </td>
+                    <td ng-if="set._id" class="text-center ">
+                        <a type="button " class="btn btn-primary " ui-sref="common.set({setId:set._id})"><i class="fa fa-eye marRht5"></i> Edit</a>
+                        <a type="button " class="btn btn-primary " ng-if="set.status=='Draft' || set.status=='Inactive'" ng-click="changeStatus(set._id, 'Active', $index)"><i class="fa fa-check marRht5"></i> Activate</a>
+                        <a type="button " class="btn btn-danger " ng-if="set.status=='Active'" ng-click="changeStatus(set._id, 'Inactive', $index)"><i class="fa fa-times marRht5"></i> Deactivate</a>
+                        <!--                        <a type="button " class="btn btn-danger " ng-click="removeSet(set._id, $index)"><i class="fa fa-trash-o marRht5 "></i> Delete</a>-->
+                    </td>
+                </tr>
+                <tr ng-if="!sets.length ">
+                    <td colspan="14" class="text-center">No records are found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
